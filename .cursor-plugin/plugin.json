@@ -5,8 +5,8 @@
   "author": {
     "name": "Logarithmic"
   },
-  "homepage": "https://github.com/logdms/logarithmic-geo",
-  "repository": "https://github.com/logdms/logarithmic-geo",
+  "homepage": "https://github.com/logdms/logarithmic-geo-plugin",
+  "repository": "https://github.com/logdms/logarithmic-geo-plugin",
   "license": "MIT",
   "keywords": [
     "geo",
