@@ -1,0 +1,16 @@
+{
+  "name": "logarithmic-geo",
+  "version": "1.0.0",
+  "description": "Generative Engine Optimization (GEO) audits for any website: AI crawler access, llms.txt, schema, citability, brand signals and AI-platform readiness, scored 0-100 with a client-ready report. By Logarithmic.",
+  "author": {
+    "name": "Logarithmic",
+    "url": "https://logarithmic.com"
+  },
+  "homepage": "https://github.com/logdms/logarithmic-geo",
+  "license": "MIT",
+  "keywords": [
+    "logarithmic",
+    "logarithmic geo",
+    "log-geo"
+  ]
+}
