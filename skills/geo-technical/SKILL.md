@@ -19,6 +19,7 @@ Technical SEO forms the foundation of both traditional search visibility and AI 
 3. Run through each of the 8 audit categories below
 4. Score each category using the rubric
 5. Generate GEO-TECHNICAL-AUDIT.md with results
+6. Apply advisory checks A1, A5, A6 and A8 from [the advisory playbook](../geo/references/advisories.md) in a separate Advisory Checks section. They do not change the technical score. A6 overrides redirect, noindex, duplicate-cleanup and removal advice in every category below.
 
 ---
 
@@ -176,6 +177,7 @@ Check HTTP response headers for:
 - Maximum 1 hop recommended (A redirects to C directly)
 - Check for redirect loops
 - All redirects should be 301 (permanent), not 302 (temporary), unless intentionally temporary
+- Any new redirect, merge or page removal follows [A6](../geo/references/advisories.md#a6-destructive-action-guard). Never redirect a page with 600+ main-content words, and every redirect change needs human approval.
 
 ### 4.4 Parameter Handling
 - URL parameters should not create duplicate indexable pages
@@ -376,6 +378,7 @@ ChatGPT uses Bing's index. Bing Copilot uses Bing's index. Faster Bing indexing 
 1. Check for IndexNow key file: `https://[domain]/.well-known/indexnow-key.txt` or similar
 2. Check if CMS has IndexNow plugin (WordPress: IndexNow plugin; many modern CMS platforms support it natively)
 3. If not implemented, recommend adding it with instructions
+4. This is advice for the owner per [A5](../geo/references/advisories.md#a5-bing-tools). The plugin checks public files only. It never creates keys, pings IndexNow or submits sitemaps.
 
 ---
 

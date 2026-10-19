@@ -32,6 +32,12 @@ Built by [Logarithmic](https://logarithmic.com). Based on the open-source [geo-s
 | `geo-report` | Client-facing report in Markdown |
 | `geo-report-pdf` | The same report as a PDF with charts |
 
+## Advisory checks
+
+Audits, plans and reports also apply nine advisory checks from [skills/geo/references/advisories.md](skills/geo/references/advisories.md): incoming internal links, title keyword and year, self-ranking lists, third-party mentions and prompt tracking, Bing tools, a guard against destructive changes, a 90-day wait before re-edits, scripted done verification, and strict cannibalization. The advisories do not change any score, weight or band. The plugin advises; a person approves and carries out every irreversible change.
+
+Check the playbooks after editing them (Python 3, no packages): `python3 scripts/validate_guidance.py --self-test`.
+
 ## Install
 
 **Grok Build.** Once the plugin is listed in the xAI plugin marketplace, open `/plugins`, go to the Marketplace tab and install `logarithmic-geo`. To try a local checkout: `grok --plugin-dir /path/to/logarithmic-geo`.
