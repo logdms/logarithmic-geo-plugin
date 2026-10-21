@@ -66,7 +66,7 @@ This is advice only. The plugin never registers accounts, never creates keys or 
 
 - **600-word floor.** Never recommend deleting, merging or redirecting a page that has 600+ main-content words. Take the count from `word_count` in `fetch_page.py` output. For such pages, recommend improving or differentiating them instead.
 - **Unknown count.** An unknown word count means `HOLD`. This covers a failed fetch, client-rendered content, or boilerplate that cannot be stripped. Hold any destructive advice until the word count is evidenced.
-- **Human approval.** Any irreversible action on any page needs human approval. That covers delete, merge, redirect, noindex, URL change, publish and sending. Label each such item `Needs human approval`. The plugin advises and never executes it.
+- **Human approval.** Any irreversible action on any page needs human approval. That covers delete, merge, redirect, noindex, URL change, publish and sending. Label each such item `Needs human approval`. The plugin advises and never executes it. Noindex and URL changes need a human decision at any word count. A URL change includes any slug or path change. Label each one `Needs human approval` and never execute it.
 - **Precedence.** This guard overrides legacy advice in any skill: technical redirect and duplicate-URL fixes, index-bloat cleanup, cannibalization merges and content pruning. Plain redirect hygiene that removes no page, such as collapsing a chain into one hop, still needs human approval.
 
 ## A7. 90-day wait on re-edits
@@ -240,4 +240,4 @@ Flag a pair of pages only when both have the same intent and the same angle, con
 
 - Evidence for each page: URL, title, H1, page type and opening paragraph, with one line each on intent and angle.
 - If intent or angle differs, the pair is not flagged. If evidence for either is missing, the pair is not flagged and is reported as `UNKNOWN`.
-- No automatic consolidation. The owner chooses the fix. Any merge or redirect obeys A6: none for a page with 600+ main-content words or an unknown count, and every one needs human approval.
+- No automatic consolidation. The owner chooses the fix. Any merge or redirect obeys A6: none for a page with 600+ main-content words or an unknown count, and every one needs human approval. Noindex and URL changes need a human decision at any word count. A URL change includes any slug or path change. Label each one `Needs human approval` and never execute it.

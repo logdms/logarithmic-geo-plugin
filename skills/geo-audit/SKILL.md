@@ -153,7 +153,7 @@ GEO_Score = (Citability * 0.25) + (Brand * 0.20) + (EEAT * 0.20) + (Technical * 
 Apply the nine checks in [the advisory playbook](../geo/references/advisories.md) to the crawl set. They are A1 internal links, A2 title lead and year, A3 self-ranking, A4 third-party presence, A5 Bing tools, A6 destructive-action guard, A7 90-day wait, A8 done verification and A9 cannibalization. Advisories do not change any score, weight or band above.
 
 - Count A1 links from the fetched HTML of crawled pages, not from the sitemap list, and record crawl coverage.
-- Run every Quick Win and 30-Day Action Plan item through A6 and A7 before it enters the report. Items they hold move to the Advisory Checks section with their evidence.
+- Run every Quick Win and 30-Day Action Plan item through A6 and A7 before it enters the report. Items they hold move to the Advisory Checks section with their evidence. Noindex and URL changes need a human decision at any word count. A URL change includes any slug or path change. Label each one `Needs human approval` and never execute it.
 - A fix counts as done only after A8 verification.
 
 ---

@@ -9,6 +9,8 @@ What it catches (the failure cases, written before the guidance):
   scoring text elsewhere is edited (scores must stay exactly as shipped);
 - the PDF JSON contract in geo-report-pdf gains or loses a key;
 - any of the nine advisories (A1-A9) loses a safeguard clause listed in REQUIRED;
+- a copy of the destructive-action guard loses a GUARD_CLAUSES part of the
+  noindex and URL-change rule on the same line as its A6 rule;
 - the advisory playbook hardcodes a year, quotes a percentage or money figure,
   or brings in keyword density, content scores or toxic-backlink checks;
 - a skill that should apply an advisory stops linking to the playbook or stops
@@ -249,6 +251,32 @@ LOCAL = {
     ],
 }
 
+# Every copy of the A6 guard states each GUARD_CLAUSES part on the line named by its anchor.
+GUARD_CLAUSES = [
+    ("noindex needs a human decision", r"noindex[^.]*human decision"),
+    ("URL change needs a human decision", r"URL changes?[^.]*human decision"),
+    ("at any word count", r"(any|regardless of|irrespective of|whatever the) word count"),
+    ("URL change covers slug and path", r"URL changes?[^.]*(slug[^.]*path|path[^.]*slug)"),
+    ("labelled Needs human approval", r"(?-i:Needs human approval)"),
+    ("never executed", r"never execut"),
+]
+# Reference wording used in the guidance; the self-test mutates it.
+GUARD = ("Noindex and URL changes need a human decision at any word count. "
+         "A URL change includes any slug or path change. "
+         "Label each one `Needs human approval` and never execute it.")
+GUARD_SITES = [
+    ("README.md", "a person approves and carries out every irreversible change"),
+    (ADV, "**Human approval.**"),
+    (ADV, "Any merge or redirect obeys A6"),
+    ("skills/geo/SKILL.md", "A6 and A7 override any older advice"),
+    ("skills/geo-audit/SKILL.md", "Action Plan item through A6 and A7"),
+    ("skills/geo-content/SKILL.md", "Before advising pruning, merging or redirecting, apply A6"),
+    ("skills/geo-technical/SKILL.md", "A6 overrides redirect, noindex"),
+    ("skills/geo-technical/SKILL.md", "Any new redirect, merge or page removal follows"),
+    ("skills/geo-report/SKILL.md", "Before an action enters Section 10, apply A6"),
+    ("skills/geo-report-pdf/SKILL.md", "drop any item that A6"),
+]
+
 
 def read(root, rel):
     p = root / rel
@@ -317,6 +345,17 @@ def check_integration(root):
     for rel, rules in LOCAL.items():
         text = read(root, rel) or ""
         errs += [f"{rel}: lost '{label}'" for label, rx in rules if not re.search(rx, text, re.I)]
+    return errs
+
+
+def check_guard(root):
+    errs = []
+    for rel, anchor in GUARD_SITES:
+        lines = [l for l in (read(root, rel) or "").splitlines() if anchor in l]
+        if not lines:
+            errs.append(f"{rel}: guard rule {anchor!r} missing")
+        errs += [f"{rel}: {anchor!r} lost '{label}'" for label, rx in GUARD_CLAUSES
+                 for l in lines if not re.search(rx, l, re.I)]
     return errs
 
 
@@ -435,6 +474,7 @@ CHECKS += [(f"advisory {aid}", check_advisory(aid)) for aid in REQUIRED]
 CHECKS += [("A8 verifier fixtures", check_a8_verifier),
            ("advisory forbidden content", check_forbidden),
            ("skill integration", check_integration),
+           ("noindex and URL-change guard", check_guard),
            ("local markdown links", check_links)]
 
 
@@ -476,6 +516,16 @@ MUTATIONS = [
     (ADV, "for loc in e if", "for loc in e.iter() if", "A8 verifier fixtures"),
     (ADV, "linked.add(src)", "linked.add(s[\"url\"])", "A8 verifier fixtures"),
     (ADV, "self.has_body |= tag in self.BODY and not open_tags & self.SKIP", "self.has_body |= tag in self.BODY", "A8 verifier fixtures"),
+    (ADV, "Noindex and URL changes need", "URL changes need", "noindex and URL-change guard"),
+    (ADV, "every one needs human approval. " + GUARD, "every one needs human approval.", "noindex and URL-change guard"),
+    ("README.md", "Noindex and URL changes need", "Noindex changes need", "noindex and URL-change guard"),
+    ("skills/geo/SKILL.md", "decision at any word count.", "decision.", "noindex and URL-change guard"),
+    ("skills/geo-audit/SKILL.md", "any slug or path change", "any path change", "noindex and URL-change guard"),
+    ("skills/geo-content/SKILL.md", "`Needs human approval`", "`Pending`", "noindex and URL-change guard"),
+    ("skills/geo-technical/SKILL.md", "human approval. " + GUARD, "human approval.", "noindex and URL-change guard"),
+    ("skills/geo-technical/SKILL.md", "category below. " + GUARD, "category below.", "noindex and URL-change guard"),
+    ("skills/geo-report/SKILL.md", "at any word count", "for 600+ main-content words", "noindex and URL-change guard"),
+    ("skills/geo-report-pdf/SKILL.md", "never execute it", "execute it", "noindex and URL-change guard"),
 ]
 
 

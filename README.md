@@ -34,7 +34,7 @@ Built by [Logarithmic](https://logarithmic.com). Based on the open-source [geo-s
 
 ## Advisory checks
 
-Audits, plans and reports also apply nine advisory checks from [skills/geo/references/advisories.md](skills/geo/references/advisories.md): incoming internal links, title keyword and year, self-ranking lists, third-party mentions and prompt tracking, Bing tools, a guard against destructive changes, a 90-day wait before re-edits, scripted done verification, and strict cannibalization. The advisories do not change any score, weight or band. The plugin advises; a person approves and carries out every irreversible change.
+Audits, plans and reports also apply nine advisory checks from [skills/geo/references/advisories.md](skills/geo/references/advisories.md): incoming internal links, title keyword and year, self-ranking lists, third-party mentions and prompt tracking, Bing tools, a guard against destructive changes, a 90-day wait before re-edits, scripted done verification, and strict cannibalization. The advisories do not change any score, weight or band. The plugin advises; a person approves and carries out every irreversible change. Noindex and URL changes need a human decision at any word count. A URL change includes any slug or path change. Label each one `Needs human approval` and never execute it.
 
 Check the playbooks after editing them (Python 3, no packages): `python3 scripts/validate_guidance.py --self-test`.
 

@@ -95,7 +95,7 @@ Launch these 5 subagents simultaneously:
 
 ### Advisory Checks (no score impact)
 
-Every command that crawls pages, plans fixes or writes a report also applies the nine checks in [references/advisories.md](references/advisories.md). They are A1 internal links, A2 title lead and year, A3 self-ranking, A4 third-party presence, A5 Bing tools, A6 destructive-action guard, A7 90-day wait, A8 done verification and A9 cannibalization. They are advice only and leave every score above unchanged. A6 and A7 override any older advice to delete, merge, redirect or re-edit a page.
+Every command that crawls pages, plans fixes or writes a report also applies the nine checks in [references/advisories.md](references/advisories.md). They are A1 internal links, A2 title lead and year, A3 self-ranking, A4 third-party presence, A5 Bing tools, A6 destructive-action guard, A7 90-day wait, A8 done verification and A9 cannibalization. They are advice only and leave every score above unchanged. A6 and A7 override any older advice to delete, merge, redirect or re-edit a page. Noindex and URL changes need a human decision at any word count. A URL change includes any slug or path change. Label each one `Needs human approval` and never execute it.
 
 ---
 
