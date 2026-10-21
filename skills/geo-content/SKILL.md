@@ -24,6 +24,7 @@ This skill evaluates content through two lenses:
 4. Check for AI content quality signals
 5. Evaluate topical authority across the site
 6. Score and generate GEO-CONTENT-ANALYSIS.md
+7. Apply advisory checks A1, A2, A3, A6, A7, A8 and A9 from [the advisory playbook](../geo/references/advisories.md). List them in a separate Advisory Checks section. They do not change the content score.
 
 ---
 
@@ -167,6 +168,7 @@ AI platforms extract content at the paragraph level. Each paragraph should be a 
 - Links should use descriptive anchor text (not "click here")
 - Create a topic cluster structure: pillar page linked to/from all related subtopic pages
 - Orphan pages (no internal links pointing to them) are rarely cited by AI
+- The 3-5 links above are outgoing links from each page. To judge whether a key page is supported, count its incoming in-body links from same-topic pages per [A1](../geo/references/advisories.md#a1-internal-link-coverage).
 
 ---
 
@@ -221,6 +223,8 @@ AI-generated content is **acceptable** per Google's guidance (March 2024 clarifi
 | Updated within 12 months | Acceptable — may need refresh |
 | Updated 12-24 months ago | Warning — review for accuracy |
 | No date or 24+ months old | Critical — AI platforms may deprioritize |
+
+These freshness scores stay as listed. Before advising an edit to an existing page, apply the 90-day wait in [A7](../geo/references/advisories.md#a7-90-day-wait-on-re-edits). Before advising pruning, merging or redirecting, apply A6.
 
 ### Evergreen Indicators
 Some content remains relevant regardless of age. Flag content as evergreen if:

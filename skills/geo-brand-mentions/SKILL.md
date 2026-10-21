@@ -207,6 +207,10 @@ Brand_Authority_Score = (YouTube * 0.25) + (Reddit * 0.25) + (Wikipedia * 0.20) 
 | 30-49 | Weak | Brand has limited platform presence. AI systems may not recognize it as a distinct entity. |
 | 0-29 | Minimal | Brand has negligible platform presence. AI systems are unlikely to cite or recommend it. |
 
+### Advisory Checks
+
+Apply [A3](../geo/references/advisories.md#a3-self-ranking-in-own-best-x-lists) (self-ranking in the site's own best-X lists) and [A4](../geo/references/advisories.md#a4-third-party-presence-and-prompt-tracking) (earned or editorial barter mentions, never paid placement, plus weekly prompt tracking). List them in a separate Advisory Checks section. They do not change the Brand Authority Score. The plugin drafts pitches for the owner and never sends, posts or submits them.
+
 ---
 
 ## Analysis Procedure

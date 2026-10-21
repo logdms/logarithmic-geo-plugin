@@ -18,6 +18,7 @@ Only **11% of domains** are cited by BOTH ChatGPT and Google AI Overviews for th
 2. Run each platform checklist below against the site
 3. Score each platform on the 0-100 rubric
 4. Generate GEO-PLATFORM-OPTIMIZATION.md with per-platform scores, gaps, and action items
+5. Apply advisory checks A4 (third-party presence and prompt tracking), A5 (Bing tools) and A7 (90-day wait before any page re-edit) from [the advisory playbook](../geo/references/advisories.md). List them in a separate Advisory Checks section. They do not change platform scores.
 
 ---
 
@@ -198,6 +199,8 @@ Only **11% of domains** are cited by BOTH ChatGPT and Google AI Overviews for th
 8. **Social Signals**: Bing has historically weighted social signals (shares, likes, engagement) more than Google. Maintain active social media presence.
 9. **Exact-Match Keywords**: Bing's algorithm is more literal about keyword matching than Google. Include exact target phrases in titles, headings, and body content.
 10. **Fast Page Load**: Copilot deprioritizes slow pages. Target sub-2-second load time. Optimize images, enable compression, minimize render-blocking resources.
+
+Items 1 and 2 are advice for the owner per [A5](../geo/references/advisories.md#a5-bing-tools). Also point the owner to the AI Performance report in Bing Webmaster Tools. The plugin never registers accounts, creates keys, pings IndexNow or submits sitemaps.
 
 ### Scoring Rubric (0-100)
 

@@ -93,6 +93,10 @@ Launch these 5 subagents simultaneously:
 | Structured Data | 10% | Schema completeness, JSON-LD validation, rich result eligibility |
 | Platform Optimization | 10% | Platform-specific readiness (Google AIO, ChatGPT, Perplexity) |
 
+### Advisory Checks (no score impact)
+
+Every command that crawls pages, plans fixes or writes a report also applies the nine checks in [references/advisories.md](references/advisories.md). They are A1 internal links, A2 title lead and year, A3 self-ranking, A4 third-party presence, A5 Bing tools, A6 destructive-action guard, A7 90-day wait, A8 done verification and A9 cannibalization. They are advice only and leave every score above unchanged. A6 and A7 override any older advice to delete, merge, redirect or re-edit a page.
+
 ---
 
 ## Business Type Detection

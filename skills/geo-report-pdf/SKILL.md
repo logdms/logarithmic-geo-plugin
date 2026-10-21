@@ -136,6 +136,14 @@ When the user runs this skill, follow this exact sequence:
 
 7. **Report success** — Tell the user the PDF was generated, its location, and file size.
 
+## Advisory Checks
+
+The PDF JSON contract stays unchanged. Do not add advisory keys to the JSON above. Write the A1-A9 results from [the advisory playbook](../geo/references/advisories.md) to a Markdown companion, `GEO-ADVISORIES.md`, saved next to the PDF.
+
+- Before filling `quick_wins`, `medium_term` and `strategic`, drop any item that A6 (destructive-action guard) or A7 (90-day wait) holds. List it in the companion with its evidence.
+- Put A8 done-verification results in the companion, not in the PDF.
+- Tell the user where both files were saved.
+
 ## If the User Provides a URL
 
 If the user runs `/geo-report-pdf https://example.com` with a URL:
