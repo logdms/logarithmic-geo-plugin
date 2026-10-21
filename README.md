@@ -1,6 +1,6 @@
 # Logarithmic GEO
 
-Generative Engine Optimization (GEO) audits for any website, packaged as agent skills for Grok Build, Cursor and other hosts that load Agent Skills.
+Generative Engine Optimization (GEO) audits for any website, packaged as agent skills for Claude Code, Grok Build, Cursor and other hosts that load Agent Skills.
 
 Give it a URL and it checks how ready the site is for AI search:
 
@@ -40,6 +40,17 @@ Check the playbooks after editing them (Python 3, no packages): `python3 scripts
 
 ## Install
 
+**Claude Code.** In Claude Code, the plugin is `geo-by-logarithmic`, shown as GEO by Logarithmic. Add the Logarithmic marketplace and install it from your shell:
+
+```bash
+claude plugin marketplace add logdms/logarithmic-geo-plugin
+claude plugin install geo-by-logarithmic@logarithmic
+```
+
+Inside a session, `/plugin marketplace add logdms/logarithmic-geo-plugin` and `/plugin install geo-by-logarithmic@logarithmic` do the same. To try a local checkout: `claude --plugin-dir /path/to/logarithmic-geo-plugin`.
+
+The plugin also connects Claude Code to the Logarithmic GEO service, a remote MCP server named `geo` at `https://geo-mcp.logarithmic.com/mcp`. The plugin ships no token or key. When the service asks you to sign in, run `/mcp`, pick `geo` and complete the sign-in in your browser. If the browser does not open, copy the URL that Claude Code prints. If the `geo` tools stop working or `/mcp` shows that `geo` needs authentication, open `/mcp`, pick `geo` and choose **Re-authenticate**. **Clear authentication** in the same menu signs you out. The skills still run without the service; see [Network access and data](#network-access-and-data).
+
 **Grok Build.** Once the plugin is listed in the xAI plugin marketplace, open `/plugins`, go to the Marketplace tab and install `logarithmic-geo`. To try a local checkout: `grok --plugin-dir /path/to/logarithmic-geo`.
 
 **Cursor.** The repository includes a Cursor plugin manifest (`.cursor-plugin/plugin.json`).
@@ -53,6 +64,8 @@ Ask in plain words or call a skill directly:
 - `/geo crawlers https://example.com`
 - `/geo-report-pdf` after an audit
 
+Claude Code puts every plugin skill under the plugin name, so there the commands read `/geo-by-logarithmic:geo-audit https://example.com` and `/geo-by-logarithmic:geo crawlers https://example.com`. The other skills follow the same pattern.
+
 The helper scripts in `skills/geo/scripts/` need Python 3 and four packages:
 
 ```bash
@@ -63,9 +76,19 @@ The PDF report needs them. The other checks can also run on the agent's own web 
 
 ## Network access and data
 
-- It requests only the site you ask it to audit: its pages, `robots.txt`, sitemaps and `llms.txt`. `fetch_page.py` repeats some of those requests with AI-crawler user-agent strings (GPTBot, ClaudeBot, PerplexityBot, Googlebot, Bingbot) to test how the site treats each crawler.
+The plugin reaches the network in two ways: through local skill scripts and through the remote Logarithmic GEO service.
+
+**Local skills and scripts.** These run on your machine:
+
+- They request only the site you ask them to audit: its pages, `robots.txt`, sitemaps and `llms.txt`. `fetch_page.py` repeats some of those requests with AI-crawler user-agent strings (GPTBot, ClaudeBot, PerplexityBot, Googlebot, Bingbot) to test how the site treats each crawler.
 - `brand_scanner.py` calls the public Wikipedia and Wikidata search APIs with the brand name. It builds search links for YouTube, Reddit, LinkedIn and review sites without requesting them.
-- No API keys, accounts or credentials are needed. There is no telemetry, and nothing is sent to Logarithmic.
+- The local scripts need no API keys, accounts or credentials, send no telemetry, and send nothing to Logarithmic.
+
+**Remote Logarithmic GEO service (Claude Code).** The Claude Code plugin declares the `geo` MCP server at `https://geo-mcp.logarithmic.com/mcp`. When Claude calls one of its tools, the service gets the tool arguments, including the site URL you ask about. After you sign in, it also gets the account identity from that sign-in. The service stores the audits and reports it produces.
+
+To avoid sending audit data to Logarithmic, turn the service off before you run the skills: run `/mcp`, pick `geo` and choose **Disable**. Claude Code records this per project, so repeat it in each project. While `geo` is disabled, Claude Code does not connect to the service. The existing skills remain available with the local scripts and the agent's own web fetching. To turn it back on, toggle `geo` on again in `/mcp`.
+
+Logarithmic's general [Privacy Policy](https://logarithmic.com/privacy-policy) applies to Logarithmic. This README describes what the GEO service receives. Questions: office@logarithmic.com or https://logarithmic.com/contact.
 
 ## License
 

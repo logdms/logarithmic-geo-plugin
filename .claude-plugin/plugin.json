@@ -1,0 +1,36 @@
+{
+  "name": "geo-by-logarithmic",
+  "displayName": "GEO by Logarithmic",
+  "version": "1.0.0",
+  "description": "Generative Engine Optimization (GEO) audits for any website: AI crawler access, llms.txt, schema, citability, brand signals and AI-platform readiness, scored 0-100 with a client-ready report. By Logarithmic.",
+  "author": {
+    "name": "Logarithmic",
+    "email": "office@logarithmic.com",
+    "url": "https://logarithmic.com"
+  },
+  "homepage": "https://github.com/logdms/logarithmic-geo-plugin#readme",
+  "repository": "https://github.com/logdms/logarithmic-geo-plugin",
+  "license": "MIT",
+  "keywords": [
+    "geo",
+    "generative engine optimization",
+    "ai search",
+    "seo",
+    "llms.txt",
+    "schema",
+    "logarithmic"
+  ],
+  "icon": "./assets/logarithmic-logo-512.png",
+  "documentationUrl": "https://github.com/logdms/logarithmic-geo-plugin#readme",
+  "supportUrl": "https://logarithmic.com/contact",
+  "privacyPolicyUrl": "https://logarithmic.com/privacy-policy",
+  "metadata": {
+    "categories": ["Marketing", "Productivity", "Developer tools"]
+  },
+  "mcpServers": {
+    "geo": {
+      "type": "http",
+      "url": "https://geo-mcp.logarithmic.com/mcp"
+    }
+  }
+}
