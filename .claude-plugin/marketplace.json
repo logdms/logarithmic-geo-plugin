@@ -1,0 +1,18 @@
+{
+  "name": "logarithmic",
+  "description": "Plugins by Logarithmic.",
+  "owner": {
+    "name": "Logarithmic",
+    "email": "office@logarithmic.com",
+    "url": "https://logarithmic.com"
+  },
+  "plugins": [
+    {
+      "name": "geo-by-logarithmic",
+      "source": "./",
+      "description": "Generative Engine Optimization (GEO) audits for any website, scored 0-100 with a client-ready report.",
+      "category": "Marketing",
+      "tags": ["productivity", "developer-tools", "geo", "seo", "ai-search"]
+    }
+  ]
+}
