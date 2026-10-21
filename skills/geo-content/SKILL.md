@@ -224,7 +224,7 @@ AI-generated content is **acceptable** per Google's guidance (March 2024 clarifi
 | Updated 12-24 months ago | Warning — review for accuracy |
 | No date or 24+ months old | Critical — AI platforms may deprioritize |
 
-These freshness scores stay as listed. Before advising an edit to an existing page, apply the 90-day wait in [A7](../geo/references/advisories.md#a7-90-day-wait-on-re-edits). Before advising pruning, merging or redirecting, apply A6.
+These freshness scores stay as listed. Before advising an edit to an existing page, apply the 90-day wait in [A7](../geo/references/advisories.md#a7-90-day-wait-on-re-edits). Before advising pruning, merging or redirecting, apply A6. Noindex and URL changes need a human decision at any word count. A URL change includes any slug or path change. Label each one `Needs human approval` and never execute it.
 
 ### Evergreen Indicators
 Some content remains relevant regardless of age. Flag content as evergreen if:

@@ -140,7 +140,7 @@ When the user runs this skill, follow this exact sequence:
 
 The PDF JSON contract stays unchanged. Do not add advisory keys to the JSON above. Write the A1-A9 results from [the advisory playbook](../geo/references/advisories.md) to a Markdown companion, `GEO-ADVISORIES.md`, saved next to the PDF.
 
-- Before filling `quick_wins`, `medium_term` and `strategic`, drop any item that A6 (destructive-action guard) or A7 (90-day wait) holds. List it in the companion with its evidence.
+- Before filling `quick_wins`, `medium_term` and `strategic`, drop any item that A6 (destructive-action guard) or A7 (90-day wait) holds. List it in the companion with its evidence. Noindex and URL changes need a human decision at any word count. A URL change includes any slug or path change. Label each one `Needs human approval` and never execute it.
 - Put A8 done-verification results in the companion, not in the PDF.
 - Tell the user where both files were saved.
 

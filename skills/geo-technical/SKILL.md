@@ -19,7 +19,7 @@ Technical SEO forms the foundation of both traditional search visibility and AI 
 3. Run through each of the 8 audit categories below
 4. Score each category using the rubric
 5. Generate GEO-TECHNICAL-AUDIT.md with results
-6. Apply advisory checks A1, A5, A6 and A8 from [the advisory playbook](../geo/references/advisories.md) in a separate Advisory Checks section. They do not change the technical score. A6 overrides redirect, noindex, duplicate-cleanup and removal advice in every category below.
+6. Apply advisory checks A1, A5, A6 and A8 from [the advisory playbook](../geo/references/advisories.md) in a separate Advisory Checks section. They do not change the technical score. A6 overrides redirect, noindex, duplicate-cleanup and removal advice in every category below. Noindex and URL changes need a human decision at any word count. A URL change includes any slug or path change. Label each one `Needs human approval` and never execute it.
 
 ---
 
@@ -177,7 +177,7 @@ Check HTTP response headers for:
 - Maximum 1 hop recommended (A redirects to C directly)
 - Check for redirect loops
 - All redirects should be 301 (permanent), not 302 (temporary), unless intentionally temporary
-- Any new redirect, merge or page removal follows [A6](../geo/references/advisories.md#a6-destructive-action-guard). Never redirect a page with 600+ main-content words, and every redirect change needs human approval.
+- Any new redirect, merge or page removal follows [A6](../geo/references/advisories.md#a6-destructive-action-guard). Never redirect a page with 600+ main-content words, and every redirect change needs human approval. Noindex and URL changes need a human decision at any word count. A URL change includes any slug or path change. Label each one `Needs human approval` and never execute it.
 
 ### 4.4 Parameter Handling
 - URL parameters should not create duplicate indexable pages

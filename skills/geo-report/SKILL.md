@@ -297,7 +297,7 @@ Use conservative estimates. Base the dollar figure on:
 
 Add an `## Advisory Checks` section with one row per finding from A1, A2, A3, A4, A5, A6, A7, A8 and A9 in [the advisory playbook](../geo/references/advisories.md). Keep it separate from the score tables, because advisories do not change any score.
 
-- Before an action enters Section 10, apply A6 (no delete, merge or redirect for 600+ main-content words; human approval for anything irreversible) and A7 (WAIT on pages changed in the last 90 days). Move held items to Advisory Checks with their evidence.
+- Before an action enters Section 10, apply A6 (no delete, merge or redirect for 600+ main-content words; human approval for anything irreversible) and A7 (WAIT on pages changed in the last 90 days). Noindex and URL changes need a human decision at any word count. A URL change includes any slug or path change. Label each one `Needs human approval` and never execute it. Move held items to Advisory Checks with their evidence.
 - Mark fixes from earlier audits as done only with A8 evidence.
 - Advisories carry no projections: no score gain, traffic estimate or dollar figure. The Estimated Impact paragraph covers the scored plan only.
 - Report `UNKNOWN` as unknown. The tone rules below do not turn missing evidence into a finding.
